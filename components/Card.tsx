@@ -7,7 +7,7 @@ import { addItem, removeItem } from '@/lib/store/selectedSlice';
 import { useEffect, useRef } from "react";
 export function Card({ item, checkedProp, isClickable }: { item: any, checkedProp: any, isClickable: boolean }) {
   const dispatch = useDispatch();
-  const checkboxRef = useRef<HTMLInputElement>(null);
+  const checkboxRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (checkedProp) {
