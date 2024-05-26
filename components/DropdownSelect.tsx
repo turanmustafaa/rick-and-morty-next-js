@@ -16,10 +16,17 @@ import {
 } from "@/components/ui/popover"
 import { statuses, Status } from "@/constants/filterTypes"
 
-interface DropdownSelectProps {
-  selectedStatus: Status | null;
-  setSelectedStatus: React.Dispatch<React.SetStateAction<Status | null>>;
+// components/DropdownSelect.tsx
+export interface DropdownOption {
+  value: string;
+  label: string;
+  icon : React.ElementType
 }
+export interface DropdownSelectProps {
+  selectedStatus: DropdownOption | null;
+  setSelectedStatus: (option: DropdownOption | null) => void;
+}
+
 
 export function DropdownSelect({ selectedStatus, setSelectedStatus }: DropdownSelectProps) {
   const [open, setOpen] = React.useState(false);

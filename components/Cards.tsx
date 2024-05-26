@@ -4,12 +4,20 @@ import { Card } from '@/components/Card';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/lib/store';
 import { Loader } from 'lucide-react';
+import { Character, Location, Episode } from '@/constants/types'; // Burada tanımlanan türleri içe aktarın
 
-const Cards = ({ characters, locations, episodes, selectedStatus }: { characters: [], locations: any, episodes: any, selectedStatus: string }) => {
+interface CardsProps {
+    characters: Character[];
+    locations: Location[];
+    episodes: Episode[];
+    selectedStatus: { label: string; value: string } | null; // selectedStatus için uygun türü tanımlayın
+  }
+
+const Cards: React.FC<CardsProps> = ({ characters, locations, episodes, selectedStatus }) => {
     const characterLoading = useSelector((state: RootState) => state.character.loading);
     const locationLoading = useSelector((state: RootState) => state.location.loading);
     const episodeLoading = useSelector((state: RootState) => state.episode.loading);
-    let results = [];
+    let results = null;
     const selectedItems = useSelector((state: RootState) => state.selected.selectedItems);
     const [isClickable, setIsClickable] = useState(true);
     useEffect(() => {
@@ -36,9 +44,9 @@ const Cards = ({ characters, locations, episodes, selectedStatus }: { characters
                     <p className='text-lg'>Loading</p>
                 </div>
             ) : (
-                results.map((item: any) => (
-                    <Card key={item.id} item={item} isClickable={isClickable} checkedProp={selectedItems.some((selectedItem: any) => selectedItem.name === item.name)} />
-                ))
+                    results && results.map((item: any) => (
+                        <Card key={item.id} item={item} isClickable={isClickable} checkedProp={selectedItems.some((selectedItem: any) => selectedItem.name === item.name)} />
+                    ))
             )}
         </div>
     );

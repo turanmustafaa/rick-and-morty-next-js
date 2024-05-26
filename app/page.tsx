@@ -1,19 +1,19 @@
 "use client"
 import { useEffect, useState } from 'react';
 import Cards from "@/components/Cards";
-import { DropdownSelect } from "@/components/DropdownSelect";
 import { Input } from "@/components/ui/input";
-import { useDispatch, useSelector } from 'react-redux';
+import { DropdownSelect, DropdownOption } from "@/components/DropdownSelect";
 import { fetchCharacters } from '@/lib/store/characterSlice';
 import { fetchEpisodes } from '@/lib/store/episodeSlice';
 import { fetchLocations } from '@/lib/store/locationSlice';
-import { useAppSelector } from '@/lib/store/hooks';
+import { useAppDispatch, useAppSelector } from '@/lib/store/hooks';
 import InputItems from '@/components/InputItems';
 import { useRef } from 'react';
+import { Character, Location, Episode } from '@/constants/types'; 
 
 export default function Home() {
-  const [selectedStatus, setSelectedStatus] = useState(null);
-  const dispatch = useDispatch();
+  const [selectedStatus, setSelectedStatus] = useState<DropdownOption | null>(null);
+  const dispatch = useAppDispatch();
   const handleSearch = (type: string, query: string) => {
     if (type === "character") {
       dispatch(fetchCharacters(query));
@@ -27,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     if (InputRef.current) {
-      InputRef.current.value = ''; // Input alanını temizle
+      InputRef.current.value = '';
       if (selectedStatus?.value === "character") {
         InputRef.current.placeholder = "Lütfen character ismini giriniz";
       } else if (selectedStatus?.value === "location") {
@@ -37,9 +37,10 @@ export default function Home() {
       }
     }
   }, [selectedStatus]);
-  const characterResults = useAppSelector(state => state.character.characters);
-  const locationResults = useAppSelector(state => state.location.locations);
-  const episodeResults = useAppSelector(state => state.episode.episodes);
+  const characterResults = useAppSelector(state => state.character.characters) as Character[];
+  const locationResults = useAppSelector(state => state.location.locations) as Location[];
+  const episodeResults = useAppSelector(state => state.episode.episodes) as Episode[];
+
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-between p-24">
       <section className="min-w-[500px] w-fit bg-white min-h-[500px] rounded border border-gray-100">
