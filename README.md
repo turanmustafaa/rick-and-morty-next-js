@@ -26,6 +26,8 @@ Bu proje, TypeScript kullanılarak geliştirilmiştir. Aşağıda projenin geli�
 - State yönetimi için Redux Toolkit kullanıldı.
 - Animasyonlar, geçişler ve tüm stil işlemleri Tailwind CSS ile yapıldı.
 - Projenin tamamı Tailwind CSS ile yazıldı, Styled Components kullanılmadı. Zaman kazanmak amacıyla bu tercih yapıldı.
+- Proje linki aşağıdadır.
+- https://rick-and-morty-next-biagx2t1f-turanmustafaas-projects.vercel.app/
 
 
 ## Nasıl Çalıştırılır?
