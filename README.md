@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AdCreative.ai Frontend Case
 
-## Getting Started
+Bu proje, iş başvurusu için geliştirilen bir case projesidir. Bu README dosyası, projenin genel yapısı, kullanılan teknolojiler ve projeyi çalıştırma adımlarını içerir.
 
-First, run the development server:
+## Kullanılan Teknolojiler
+
+Bu projede aşağıdaki teknolojiler kullanılmıştır:
+- NextJs
+- React
+- React Router DOM
+- Redux,Redux Toolkit
+- Axios
+- React Loading Skeleton
+- TypeScript
+- Tailwind CSS
+
+# Projeyi Nasıl Geliştirdim
+
+Bu proje, TypeScript kullanılarak geliştirilmiştir. Aşağıda projenin geliştirilme sürecinde kullanılan yöntemler ve teknolojiler hakkında detaylı bilgiler bulunmaktadır:
+
+- TypeScript ile projeyi geliştirdim.
+- Projeyi tekrar olçeklenebilir hale getirdim. Mimari değiştirmeden büyütülebilir ve esnek bir yapıya sahip. Bu amaçla layout sistemi entegre edildi. Farklı modallar, bileşenler vb. esnek bir şekilde entegre edilebilir ve tekrar kullanılabilir.
+- Veri alışverişi işlemleri için özel hooklar oluşturuldu.
+- Tüm bileşenler, Redux ile güncelleniyor.
+- İstekler için Axios kütüphanesi kullanıldı.
+- State yönetimi için Redux Toolkit kullanıldı.
+- Animasyonlar, geçişler ve tüm stil işlemleri Tailwind CSS ile yapıldı.
+- Projenin tamamı Tailwind CSS ile yazıldı, Styled Components kullanılmadı. Zaman kazanmak amacıyla bu tercih yapıldı.
+
+
+## Nasıl Çalıştırılır?
+
+Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
+
+1. Öncelikle, projeyi klonlayın veya zip olarak indirin:
 
 ```bash
+git clone <proje-git-url>
+
+npm install
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
